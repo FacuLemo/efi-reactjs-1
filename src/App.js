@@ -1,5 +1,5 @@
 import Test from "./components/test";
-import Menu from "./components/menu"
+import Menu from "./components/menu/menu"
 
 
 function App() {
