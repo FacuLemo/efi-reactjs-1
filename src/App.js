@@ -1,8 +1,32 @@
 import Test from "./components/test";
 import Menu from "./components/menu"
-
+import Drawclass from "./components/drawclass/Drawclass"
 
 function App() {
+  const configUml = {
+    name: 'Person',
+    attributes: ['+name:str','+phoneNumber:str','+emailAddress:str'],
+    methods:['+purchaseParkingPass()'],
+    borderColor:'#e83838',
+    headColor:'rgb(253, 197, 197)',
+    textColor:'#333333'
+}
+  const configUml2 = {
+    name: 'Vehicle',
+    attributes: ['+brand:str','+idNumber:str','+model:str','+year:int'],
+    methods:['+forward','+brake','+turnLeft','+turnRight'],
+    borderColor:'#34afe0',
+    headColor:'#84c1d9',
+    textColor:'#333333'
+  }
+  const configUml3 = {
+    name: 'Employee',
+    attributes: ['+position:str','+department:str','+salary:int','+yearOfEntry:int'],
+    methods:['+work','+changePosition'],
+    borderColor:'#fcba03',
+    headColor:'#ffe499',
+    textColor:'#333333'
+  }
   const configMenu = {
     configColor: {
     background:'#f4f5fa', // Color de Fondo General de la botonera
@@ -34,8 +58,9 @@ function App() {
 
       {/* Menú */}
       <Menu data={configMenu} />
-
-
+      <Drawclass data={configUml}/>
+      <Drawclass data={configUml2}/>
+      <Drawclass data={configUml3}/>
       </header>
     </div>
   );
