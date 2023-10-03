@@ -15,22 +15,24 @@ class Menu extends Component{
         return firstLevel
     }
 
-    handleClick(){
-        console.log('auch') //testeo
+    handleClick(openable=true){
+        console.log(openable)
+        if (openable===true) {
+            return console.log('me abriste');
+        }
+        return console.log('asi me quedo') //testeo
+        //aca crear componente nuevo
     }
 
     renderItemsNames(items,style){ //se recibe la lista de objetos y los estilos 
         //Es probable que esto deba ser reestructurado! soy un gil
-        let itemsNames=[]
-        for(let item of items){
-                itemsNames.push(item.name)
-        }
+
         return ( //quizás cada elemento deba ser un componente a ser creado en vez de mapear los items
-        //sí!, y ese cosito tenga el estado de 'activo' para mostrar la otra ventana
+
         //podemos trabajar fácil con los id de cada obj tmb
             <div className={style} >
-            {itemsNames.map((name) => (
-               <p onClick={this.handleClick} >{name}</p>
+            {items.map((item) => (
+                <p onClick={this.handleClick} key={item.id}>{item.name}</p>
             ))}
             </div>
         )
