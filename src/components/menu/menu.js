@@ -1,8 +1,16 @@
 import { Component } from "react";
 import "./Menu.css";
-//import FolderMenu from "../foldermenu/FolderMenu.js";
+import FolderMenu from "../foldermenu/FolderMenu.js";
+import getChildren from "./GetChildren";
 
 class Menu extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            active: false
+        }
+    this.showFolderMenu = null;
+    }
 
     getFirstLevelItems(){ //retorna los objetos de primer nivel en una lista
         let firstLevel=[]
@@ -16,35 +24,43 @@ class Menu extends Component{
         return firstLevel
     }
 
-    handleClick(openable=false){
-        if (openable===true) {
-            return console.log('me abriste')
+    handleClick(item){
+        if (item.isFolder===true) {
+            let children = getChildren(item,this.props.data.menuItems)
+            let isActive = !this.state.active
+            this.setState({
+                active: isActive
+            })
+            this.showFolderMenu = <FolderMenu items={children} menuItems={this.props.data.menuItems}/> // pasar como param. los items de los cuales item.id sea padre
         }
-        return null
     }
 
     renderItemsNames(items,style){ //se recibe la lista de objetos y los estilos 
-        //Es probable que esto deba ser reestructurado! soy un gil
         return (
             <div className={style} >
-            {items.map((item) => (
-                <p onClick={() => this.handleClick(item.isFolder)} key={item.id}>{item.name}</p>
-            ))}
+                {items.map((item) => (
+                <p onClick={() => this.handleClick(item)} key={item.id}> 
+                {item.name} </p>
+                ))}
+                <div>
+                    {(this.state.active ? this.showFolderMenu : '')}
+                </div>
             </div>
         )
     }
 
     render(){
-        //menuitems:[name, isFolder, id, idPadre]
-        //Mostrar PRIMERO los que idPadre=idFirstlevel
-
         //Hacerle Flecha si isFolder=true (puede ser otro comp)
         let firstLevel = this.getFirstLevelItems()
         return(
             <div>
+                <div>
                 {
                     this.renderItemsNames(firstLevel,'header')
                 }
+                </div>
+                
+                
             </div>
         )
     }

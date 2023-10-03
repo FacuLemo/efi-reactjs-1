@@ -1,5 +1,5 @@
 import Test from "./components/test";
-import Menu from "./components/menu/Menu.js";
+import Menu from "./components/menu/Menu";
 
 
 function App() {
@@ -15,7 +15,6 @@ function App() {
     {name:'Another Action', isFolder:false, id:148, idPadre:150},
     {name:'sub menu', isFolder:true, id:2, idPadre:150},
     {name:'Action', isFolder:false, id:3, idPadre:2},
-    
     {name:'Another action', isFolder:false, id:4, idPadre:2},
     {name:'sub menu', isFolder:true, id:5, idPadre:2},
     {name:'Another action', isFolder:false, id:55, idPadre:5},
@@ -33,7 +32,7 @@ function App() {
         <hr/>
 
       {/* Menú */}
-      <Menu data={configMenu} />
+      <Menu data={configMenu}/>
 
 
       </header>
