@@ -6,7 +6,7 @@ function App() {
   const configUml = {
     name: 'Person',
     attributes: ['+name:str','+phoneNumber:str','+emailAddress:str'],
-    methods:['+purchaseParkingPass()'],
+    methods:[],
     borderColor:'#e83838',
     headColor:'rgb(253, 197, 197)',
     textColor:'#333333'
@@ -61,6 +61,8 @@ function App() {
       <Drawclass data={configUml}/>
       <Drawclass data={configUml2}/>
       <Drawclass data={configUml3}/>
+
+      <Drawclass/>
       </header>
     </div>
   );
