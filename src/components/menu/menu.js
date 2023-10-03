@@ -1,5 +1,6 @@
 import { Component } from "react";
-import "./menu.css";
+import "./Menu.css";
+//import FolderMenu from "../foldermenu/FolderMenu.js";
 
 class Menu extends Component{
 
@@ -9,30 +10,25 @@ class Menu extends Component{
         let items = this.props.data.menuItems;
         for(let item of items){
             if(item.idPadre===idFirstLevel){
-                firstLevel.push(item)     
+                firstLevel.push(item)
             }
         }
         return firstLevel
     }
 
-    handleClick(openable=true){
-        console.log(openable)
+    handleClick(openable=false){
         if (openable===true) {
-            return console.log('me abriste');
+            return console.log('me abriste')
         }
-        return console.log('asi me quedo') //testeo
-        //aca crear componente nuevo
+        return null
     }
 
     renderItemsNames(items,style){ //se recibe la lista de objetos y los estilos 
         //Es probable que esto deba ser reestructurado! soy un gil
-
-        return ( //quizás cada elemento deba ser un componente a ser creado en vez de mapear los items
-
-        //podemos trabajar fácil con los id de cada obj tmb
+        return (
             <div className={style} >
             {items.map((item) => (
-                <p onClick={this.handleClick} key={item.id}>{item.name}</p>
+                <p onClick={() => this.handleClick(item.isFolder)} key={item.id}>{item.name}</p>
             ))}
             </div>
         )
@@ -41,9 +37,9 @@ class Menu extends Component{
     render(){
         //menuitems:[name, isFolder, id, idPadre]
         //Mostrar PRIMERO los que idPadre=idFirstlevel
-        //Hacerle Flecha si isFolder=true
+
+        //Hacerle Flecha si isFolder=true (puede ser otro comp)
         let firstLevel = this.getFirstLevelItems()
-        
         return(
             <div>
                 {
