@@ -18,7 +18,7 @@ class ItemMenu extends Component{
             this.setState({
                 active: isActive
             })
-            this.showFolderMenu = <FolderMenu items={children} menuItems={this.props.menuItems}/> // pasar como param. los items de los cuales item.id sea padre
+            this.showFolderMenu = <FolderMenu items={children} colorBg={this.props.colorBg} menuItems={this.props.menuItems}/> // pasar como param. los items de los cuales item.id sea padre
         }
     }
 
@@ -27,6 +27,7 @@ class ItemMenu extends Component{
             <div>
                 <div onClick={()=>(this.handleClick())} style={{
                         margin:'5px',
+                        backgroundColor:(this.state.active ? this.props.colorActive : ''),
                     }}>
                      
                         {this.props.child.name} 

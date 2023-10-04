@@ -1,6 +1,5 @@
 .header{
     display: flex;
-    background-color: lightgrey;
     justify-content: center;
     list-style: none;
 }

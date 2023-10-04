@@ -16,12 +16,21 @@ class Menu extends Component{
         return firstLevel
     }
     
-    renderItemsNames(items,style){ //se recibe la lista de objetos y los estilos 
+    renderFirstLevel(items,style){ //se recibe la lista de objetos y los estilos 
+        const {background:bg, itemBackground:folderMenuBg, itemColor:color, itemActive:colorActive} = style;
+        //TODO: ver por qué corno no desempaqueta como la gente este objeto aweonao
+        //console.log(bg,folderMenuBg,color,colorActive)
         return (
             <div>
-                <ul className={style}>
+                <ul style={{
+                    backgroundColor: bg,
+                    color: color,
+                    display: "flex",
+                    justifyContent: "center",
+                    listStyle: "none",
+                }}>
                     {items.map((item) => (
-                        <ItemMenu child={item} menuItems={this.props.data.menuItems} key={item.id}/> 
+                        <ItemMenu child={item} colorActive={colorActive} colorBg={folderMenuBg} menuItems={this.props.data.menuItems} key={item.id}/> 
                     ))}
                 </ul>
             </div>
@@ -35,7 +44,7 @@ class Menu extends Component{
             <div>
                 <div>
                 {
-                    this.renderItemsNames(firstLevel,'header')
+                    this.renderFirstLevel(firstLevel,this.props.data.configColor)
                 }
                 </div>
                 
