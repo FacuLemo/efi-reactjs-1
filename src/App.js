@@ -3,6 +3,7 @@ import Menu from "./components/menu/Menu";
 
 
 function App() {
+  
   const configMenu = {
     configColor: {
     background:'#f4f5fa', // Color de Fondo General de la botonera
@@ -21,6 +22,7 @@ function App() {
     {name:'something else here', isFolder:false, id:56, idPadre:5},
     ],
     } // end
+
   return (
     <div>
       <header>

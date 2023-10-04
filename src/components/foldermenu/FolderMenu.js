@@ -1,5 +1,7 @@
 import { Component } from "react";
 import getChildren from "../menu/GetChildren";
+import ItemMenu from "../itemmenu/ItemMenu";
+import "./FolderMenu.css";
 
 class FolderMenu extends Component {
     constructor(props){
@@ -7,8 +9,11 @@ class FolderMenu extends Component {
         this.state = {
             active: false
         }
-    this.showFolderMenu = null;
+        this.showFolderMenu = null; //si el folder menu TIENE active:true, debe buscarse a sí mismo (con las ref)
+                                    //y rendererizar el otro foldermenu un "this" a la derecha.
+                                    //Si no hubiese lugar, renderizar a la izquierda con un "-this"
     }
+
     handleClick(item){
         if (item.isFolder===true) {
             let children = getChildren(item,this.props.menuItems)
@@ -21,23 +26,24 @@ class FolderMenu extends Component {
         }
     }
 
-
     render(){
         return (
-            <div>
-            <ul style={{
-                border: 'solid black 3px',
-                marginTop: '80px',
-            }}>
-                {this.props.items.map((item) => (
-                <li key={item.id}  onClick={() => this.handleClick(item)}> 
-                {item.name} </li>
-                ))}
-            </ul>
-            
-            {(this.state.active ? this.showFolderMenu : '')}
-            
-            </div>
+            <>
+                <div style={{
+                    border: 'solid black 3px',
+                    display:'flex',
+                    flexDirection:'column',
+                    position:'absolute',
+                    
+                }}>
+                    {this.props.items.map((item) => (
+                    <ItemMenu child={item} menuItems={this.props.menuItems} key={item.id}/> 
+                    ))}
+                </div>
+                
+                {(this.state.active ? this.showFolderMenu : '')}
+                
+            </>
         )
     }
 }

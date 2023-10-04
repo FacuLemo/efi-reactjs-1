@@ -1,16 +1,8 @@
 import { Component } from "react";
 import "./Menu.css";
-import FolderMenu from "../foldermenu/FolderMenu.js";
-import getChildren from "./GetChildren";
+import ItemMenu from "../itemmenu/ItemMenu";
 
 class Menu extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            active: false
-        }
-    this.showFolderMenu = null;
-    }
 
     getFirstLevelItems(){ //retorna los objetos de primer nivel en una lista
         let firstLevel=[]
@@ -23,28 +15,15 @@ class Menu extends Component{
         }
         return firstLevel
     }
-
-    handleClick(item){
-        if (item.isFolder===true) {
-            let children = getChildren(item,this.props.data.menuItems)
-            let isActive = !this.state.active
-            this.setState({
-                active: isActive
-            })
-            this.showFolderMenu = <FolderMenu items={children} menuItems={this.props.data.menuItems}/> // pasar como param. los items de los cuales item.id sea padre
-        }
-    }
-
+    
     renderItemsNames(items,style){ //se recibe la lista de objetos y los estilos 
         return (
-            <div className={style} >
-                {items.map((item) => (
-                <p onClick={() => this.handleClick(item)} key={item.id}> 
-                {item.name} </p>
-                ))}
-                <div>
-                    {(this.state.active ? this.showFolderMenu : '')}
-                </div>
+            <div>
+                <ul className={style}>
+                    {items.map((item) => (
+                        <ItemMenu child={item} menuItems={this.props.data.menuItems} key={item.id}/> 
+                    ))}
+                </ul>
             </div>
         )
     }
@@ -59,7 +38,6 @@ class Menu extends Component{
                     this.renderItemsNames(firstLevel,'header')
                 }
                 </div>
-                
                 
             </div>
         )
