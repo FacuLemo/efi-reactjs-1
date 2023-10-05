@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import getChildren from "../menu/GetChildren";
 import FolderMenu from "../foldermenu/FolderMenu.js";
+import './../shared_styles/ItemMenu.css'
 
 class ItemMenu extends Component{
     constructor(props){
@@ -27,9 +28,9 @@ class ItemMenu extends Component{
         
         return(
             <div>
-                <div  onClick={()=>(this.handleClick())} style={{
-                        margin:'5px',
-                        backgroundColor:(this.state.active ? this.props.colorActive: ''),
+                <div className={this.props.child.isFolder && this.state.active?"navItem folder active":this.props.child.isFolder 
+                && !this.state.active?'navItem folder inactive':'navItem'} onClick={()=>(this.handleClick())} style={{
+                        backgroundColor:(this.state.active ? this.props.colorActive: '')
                     }}>
                         {this.props.child.name} 
                 </div>

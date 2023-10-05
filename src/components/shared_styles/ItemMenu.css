@@ -1,0 +1,24 @@
+.navItem{
+    padding: 10px;
+    transition: 0.3s;
+    border-radius: 0.5em;
+    margin:5px;
+}
+
+.navItem:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.folder, .inactive::after{
+    margin-left: 5px;
+    content: '►';
+    display: flex;
+    justify-content: space-between;
+}
+
+.folder, .active::after{
+    margin-left: 5px;
+    content: '▼';
+}

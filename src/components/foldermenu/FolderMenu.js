@@ -1,6 +1,6 @@
 import { Component } from "react";
 import ItemSubMenu from "../itemsubmenu/ItemSubMenu";
-import "./FolderMenu.css";
+import "./../shared_styles/Folder.css";
 import React from "react";
 
 class FolderMenu extends Component {
@@ -12,12 +12,8 @@ class FolderMenu extends Component {
     render(){
         return (
             <>
-                <div ref={this.folderSize} style={{
-                    border: 'solid black 1px',
-                    backgroundColor:this.props.colorBg,
-                    display:'flex',
-                    flexDirection:'column-reverse',
-                    position:'absolute',
+                <div className="folderMenu" ref={this.folderSize} style={{
+                    backgroundColor:this.props.colorBg
                 }}>
                     {this.props.items.map((item) => (
                     <ItemSubMenu offset={this.folderSize} colorActive={this.props.colorActive} child={item} menuItems={this.props.menuItems} colorBg={this.props.colorBg} key={item.id}/> 
