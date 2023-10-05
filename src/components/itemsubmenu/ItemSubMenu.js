@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import getChildren from '../menu/GetChildren'
+import getChildren from '../shared_functions/GetChildren'
 import FolderSubMenu from '../foldersubmenu/FolderSubMenu.js'
 import './../shared_styles/ItemMenu.css'
 
