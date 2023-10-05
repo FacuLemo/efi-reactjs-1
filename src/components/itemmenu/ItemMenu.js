@@ -9,8 +9,7 @@ class ItemMenu extends Component {
     this.state = {
       active: false
     }
-    this.showFolderMenu = null // ver si no se está ya adentro de un foldermenu
-    // si se estuviera, mostrar el foldermenu a la derecha
+    this.showFolderMenu = null
     this.ref = React.createRef()
     this.handleClickOutside = this.handleClickOutside.bind(this)
   }
@@ -22,7 +21,7 @@ class ItemMenu extends Component {
       this.setState({
         active: isActive
       })
-      this.showFolderMenu = <FolderMenu colorActive={this.props.colorActive} items={children} colorBg={this.props.colorBg} menuItems={this.props.menuItems}/> // pasar como param. los items de los cuales item.id sea padre
+      this.showFolderMenu = <FolderMenu colorActive={this.props.colorActive} items={children} colorBg={this.props.colorBg} menuItems={this.props.menuItems}/>
     }
   }
 
@@ -61,4 +60,5 @@ class ItemMenu extends Component {
     )
   }
 }
+
 export default ItemMenu

@@ -5,12 +5,8 @@ import './../shared_styles/Folder.css'
 class FolderSubMenu extends Component {
   render () {
     const width = this.props.offset.current.offsetWidth + 'px'
-
-    console.log('FolderSubMenu : ' + width)
-
     return (
-            <>
-                <div className="folderMenu" style={{
+              <div className="folderMenu" style={{
                   backgroundColor: this.props.colorBg,
                   marginLeft: width,
                   marginTop: '-45px'
@@ -19,8 +15,6 @@ class FolderSubMenu extends Component {
                     <ItemSubMenu offset={this.props.offset} child={item} colorActive={this.props.colorActive} menuItems={this.props.menuItems} colorBg={this.props.colorBg} key={item.id}/>
                     ))}
                 </div>
-
-            </>
     )
   }
 }

@@ -17,16 +17,11 @@ class Menu extends Component {
 
   renderFirstLevel (items, style) { // se recibe la lista de objetos y los estilos
     const { background: bg, itemBackground: folderMenuBg, itemColor: color, itemActive: colorActive } = style
-    // TODO: ver por qué corno no desempaqueta como la gente este objeto aweonao
-    // console.log(bg,folderMenuBg,color,colorActive)
     return (
             <div>
-                <div style={{
+                <div className='menu' style={{
                   backgroundColor: bg,
-                  color,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  listStyle: 'none'
+                  color: color,
                 }}>
                     {items.map((item) => (
                         <ItemMenu child={item} colorActive={colorActive} colorBg={folderMenuBg} menuItems={this.props.data.menuItems} key={item.id}/>
@@ -37,21 +32,16 @@ class Menu extends Component {
   }
 
   render () {
-    // Hacerle Flecha si isFolder=true (puede ser otro comp)
-    const firstLevel = this.getFirstLevelItems()
+    const firstLevel = this.getFirstLevelItems() //obtenemos la lista de los obj. de primer nivel
     return (
             <div>
             {
-                this.renderFirstLevel(firstLevel, this.props.data.configColor)
+                this.renderFirstLevel(firstLevel, this.props.data.configColor) //renderizamos con un map
             }
             </div>
 
     )
   }
-}
-
-Menu.defaultProps = {
-  // si es necesario
 }
 
 export default Menu

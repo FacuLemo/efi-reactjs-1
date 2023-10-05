@@ -21,7 +21,7 @@ class ItemSubMenu extends Component {
       this.setState({
         active: isActive
       })
-      this.showFolderMenu = <FolderSubMenu offset={this.props.offset} items={children} colorBg={this.props.colorBg} menuItems={this.props.menuItems}/> // pasar como param. los items de los cuales item.id sea padre
+      this.showFolderSubMenu = <FolderSubMenu offset={this.props.offset} items={children} colorBg={this.props.colorBg} menuItems={this.props.menuItems}/> // pasar como param. los items de los cuales item.id sea padre
     }
   }
 
@@ -55,9 +55,8 @@ class ItemSubMenu extends Component {
                     }}>
                         {this.props.child.name}
                 </div>
-                    {(this.state.active ? this.showFolderMenu : '')}
+                    {(this.state.active ? this.showFolderSubMenu : '')}
             </div>
-
     )
   }
 }
