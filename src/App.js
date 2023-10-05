@@ -1,6 +1,4 @@
-import Test from "./components/test";
 import Menu from "./components/menu/Menu";
-
 
 function App() {
 
@@ -16,29 +14,18 @@ function App() {
     {name:'Another Action', isFolder:false, id:148, idPadre:150},
     {name:'sub menu', isFolder:true, id:2, idPadre:150},
     {name:'Action', isFolder:false, id:3, idPadre:2},
-    {name:'Another action', isFolder:true, id:4, idPadre:2},
-    {name:'sub menu', isFolder:true, id:5, idPadre:2},
+    {name:'sub menu', isFolder:true, id:4, idPadre:2},
+    {name:'another sub menu', isFolder:true, id:5, idPadre:2},
     {name:'Another action', isFolder:false, id:55, idPadre:5},
     {name:'something else here', isFolder:false, id:56, idPadre:5},
-    {name:'Otro coso', isFolder:true, id:59, idPadre:4},
-    {name:'Otro coso más', isFolder:false, id:60, idPadre:59}
+    {name:'Action', isFolder:false, id:59, idPadre:4},
     ],
-    } // end
+    } 
 
   return (
     <div>
       <header>
-        <a href="https://reactjs.org">
-          aprendé loco
-        </a>
-        <hr/>
-        <Test/>
-        <hr/>
-
-      {/* Menú */}
       <Menu data={configMenu}/>
-
-
       </header>
     </div>
   );

@@ -11,6 +11,8 @@ class ItemMenu extends Component{
         }
     this.showFolderMenu = null; // ver si no se está ya adentro de un foldermenu
                                 //si se estuviera, mostrar el foldermenu a la derecha
+    this.ref = React.createRef()
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     handleClick(){
@@ -24,10 +26,25 @@ class ItemMenu extends Component{
         }
     }
 
+    handleClickOutside(event) {
+        if (this.ref.current && !this.ref.current.contains(event.target) && this.props.child.isFolder) {
+            this.setState({
+                active: false
+            })
+        }
+      };
+
+      componentDidMount() {
+        document.addEventListener('click', this.handleClickOutside, true);
+      }
+    
+      componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside, true);
+      };
+
     render(){
-        
         return(
-            <div>
+            <div ref={this.ref}>
                 <div className={this.props.child.isFolder && this.state.active?"navItem folder active":this.props.child.isFolder 
                 && !this.state.active?'navItem folder inactive':'navItem'} onClick={()=>(this.handleClick())} style={{
                         backgroundColor:(this.state.active ? this.props.colorActive: '')
