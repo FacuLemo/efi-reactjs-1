@@ -1,8 +1,8 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import getChildren from "../menu/GetChildren";
 import FolderSubMenu from "../foldersubmenu/FolderSubMenu.js";
 import './../shared_styles/ItemMenu.css'
-import React from "react";
+
 class ItemSubMenu extends Component{
     constructor(props){
         super(props)
@@ -10,7 +10,7 @@ class ItemSubMenu extends Component{
             active: false
         }
     this.showFolderSubMenu = null; // ver si no se está ya adentro de un foldermenu
-                                //si se estuviera, mostrar el foldermenu a la derecha
+                                   //si se estuviera, mostrar el foldermenu a la derecha
     this.ref = React.createRef()
     this.handleClickOutside = this.handleClickOutside.bind(this);
     }
