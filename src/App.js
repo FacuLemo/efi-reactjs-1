@@ -2,7 +2,7 @@ import Drawclass from './components/drawclass/Drawclass'
 import Menu from './components/menu/Menu'
 
 function App () {
-  const configMenu = {
+  const CONFIG_MENU = {
     configColor: {
       background: '#f4f5fa', // Color de Fondo General de la botonera
       itemBackground: '#d0d0d0', // Color de Fondo de los subMenús
@@ -22,7 +22,7 @@ function App () {
     ]
   }
 
-  const configUml = {
+  const CONFIG_UML = {
     name: 'Person',
     attributes: ['+name:str', '+phoneNumber:str', '+emailAddress:str'],
     methods: [],
@@ -30,7 +30,7 @@ function App () {
     headColor: 'rgb(253, 197, 197)',
     textColor: '#333333'
   }
-  const configUml2 = {
+  const CONFIG_UML2 = {
     name: 'Vehicle',
     attributes: ['+brand:str', '+idNumber:str', '+model:str', '+year:int'],
     methods: ['+forward()', '+brake', '+turnLeft()', '+turnRight()'],
@@ -38,7 +38,7 @@ function App () {
     headColor: '#84c1d9',
     textColor: '#333333'
   }
-  const configUml3 = {
+  const CONFIG_UML3 = {
     name: 'Employee',
     attributes: ['+position:str', '+department:str', '+salary:int', '+yearOfEntry:int'],
     methods: ['+work()', '+changePosition()'],
@@ -51,11 +51,11 @@ function App () {
     <div>
       <header>
 
-      <Menu data={configMenu}/>
+      <Menu data={CONFIG_MENU}/>
 
-      <Drawclass data={configUml}/>
-      <Drawclass data={configUml2}/>
-      <Drawclass data={configUml3}/>
+      <Drawclass data={CONFIG_UML}/>
+      <Drawclass data={CONFIG_UML2}/>
+      <Drawclass data={CONFIG_UML3}/>
       <Drawclass/>
 
       </header>

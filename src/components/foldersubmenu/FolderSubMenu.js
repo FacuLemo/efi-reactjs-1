@@ -4,11 +4,11 @@ import './../shared_styles/Folder.css'
 
 class FolderSubMenu extends Component {
   render () {
-    const width = this.props.offset.current.offsetWidth + 'px'
+    const WIDTH = this.props.offset.current.offsetWidth + 'px'
     return (
               <div className="folderMenu" style={{
                   backgroundColor: this.props.colorBg,
-                  marginLeft: width,
+                  marginLeft: WIDTH,
                   marginTop: '-45px'
                 }}>
                     {this.props.items.map((item) => (

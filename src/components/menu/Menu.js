@@ -4,11 +4,11 @@ import ItemMenu from '../itemmenu/ItemMenu'
 
 class Menu extends Component {
   getFirstLevelItems () { // retorna los objetos de primer nivel en una lista
-    const firstLevel = []
-    const idFirstLevel = this.props.data.idFirstNivel
-    const items = this.props.data.menuItems
-    for (const item of items) {
-      if (item.idPadre === idFirstLevel) {
+    let firstLevel = []
+    const ID_FIRST_LEVEL = this.props.data.idFirstNivel
+    const ITEMS = this.props.data.menuItems
+    for (let item of ITEMS) {
+      if (item.idPadre === ID_FIRST_LEVEL) {
         firstLevel.push(item)
       }
     }
@@ -16,7 +16,7 @@ class Menu extends Component {
   }
 
   renderFirstLevel (items, style) { // se recibe la lista de objetos y los estilos
-    const { background: bg, itemBackground: folderMenuBg, itemColor: color, itemActive: colorActive } = style
+    let { background: bg, itemBackground: folderMenuBg, itemColor: color, itemActive: colorActive } = style
     return (
             <div>
                 <div className='menu' style={{
@@ -32,11 +32,11 @@ class Menu extends Component {
   }
 
   render () {
-    const firstLevel = this.getFirstLevelItems() //obtenemos la lista de los obj. de primer nivel
+    const FIRST_LEVEL = this.getFirstLevelItems() //obtenemos la lista de los obj. de primer nivel
     return (
             <div>
             {
-                this.renderFirstLevel(firstLevel, this.props.data.configColor) //renderizamos con un map
+                this.renderFirstLevel(FIRST_LEVEL, this.props.data.configColor) //renderizamos con un map
             }
             </div>
     )
