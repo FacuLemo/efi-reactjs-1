@@ -13,14 +13,14 @@ function App() {
     },
     idFirstNivel : 150,
     menuItems : [
-    {name:'Another Action', isFolder:false, id:148, idPadre:150},
-    {name:'sub menu', isFolder:true, id:2, idPadre:150},
-    {name:'Action', isFolder:false, id:3, idPadre:2},
-    {name:'sub menu', isFolder:true, id:4, idPadre:2},
-    {name:'another sub menu', isFolder:true, id:5, idPadre:2},
-    {name:'Another action', isFolder:false, id:55, idPadre:5},
-    {name:'something else here', isFolder:false, id:56, idPadre:5},
-    {name:'Action', isFolder:false, id:59, idPadre:4},
+    {name:'Action', isFolder:false, id:148, idPadre:150},
+    {name:'Folder', isFolder:true, id:2, idPadre:150},
+    {name:'Subaction', isFolder:false, id:3, idPadre:2},
+    {name:'Subfolder', isFolder:true, id:4, idPadre:2},
+    {name:'Subfolder', isFolder:true, id:5, idPadre:2},
+    {name:'Sub-subaction', isFolder:false, id:55, idPadre:5},
+    {name:'Sub-subaction', isFolder:false, id:56, idPadre:5},
+    {name:'Sub-subaction', isFolder:false, id:59, idPadre:4},
     ],
     } 
 

@@ -39,8 +39,26 @@ class Menu extends Component {
                 this.renderFirstLevel(firstLevel, this.props.data.configColor) //renderizamos con un map
             }
             </div>
-
     )
+  }
+}
+
+Menu.defaultProps = {
+  data:{
+    configColor: {
+      background:'#f4f5fa', // Color de Fondo General de la botonera
+      itemBackground: '#d0d0d0',// Color de Fondo de los subMenús
+      itemColor:'#666', // Color del texto de cada item del menú
+      itemActive:'#a8a8a8', // Color cuando hace click y se abre un submenú
+      },
+      idFirstNivel : 150,
+      menuItems : [
+      {name:'Action Default', isFolder:false, id:148, idPadre:150},
+      {name:'Folder Default', isFolder:true, id:2, idPadre:150},
+      {name:'Subaction Default', isFolder:false, id:3, idPadre:2},
+      {name:'Subfolder Default', isFolder:true, id:4, idPadre:2},
+      {name:'another sub menu', isFolder:false, id:5, idPadre:4},
+      ]
   }
 }
 
