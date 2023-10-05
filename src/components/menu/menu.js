@@ -22,7 +22,7 @@ class Menu extends Component{
         //console.log(bg,folderMenuBg,color,colorActive)
         return (
             <div>
-                <ul style={{
+                <div style={{
                     backgroundColor: bg,
                     color: color,
                     display: "flex",
@@ -32,7 +32,7 @@ class Menu extends Component{
                     {items.map((item) => (
                         <ItemMenu child={item} colorActive={colorActive} colorBg={folderMenuBg} menuItems={this.props.data.menuItems} key={item.id}/> 
                     ))}
-                </ul>
+                </div>
             </div>
         )
     }
@@ -42,13 +42,11 @@ class Menu extends Component{
         let firstLevel = this.getFirstLevelItems()
         return(
             <div>
-                <div>
-                {
-                    this.renderFirstLevel(firstLevel,this.props.data.configColor)
-                }
-                </div>
-                
+            {
+                this.renderFirstLevel(firstLevel,this.props.data.configColor)
+            }
             </div>
+
         )
     }
 }
