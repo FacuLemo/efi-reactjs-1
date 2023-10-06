@@ -10,15 +10,13 @@ class FolderMenu extends Component {
 
   render () {
     return (
-            <>
-                <div className="folderMenu" ref={this.folderSize} style={{
+              <div className="folderMenu" ref={this.folderSize} style={{
                   backgroundColor: this.props.colorBg
                 }}>
                     {this.props.items.map((item) => (
                     <ItemSubMenu offset={this.folderSize} colorActive={this.props.colorActive} child={item} menuItems={this.props.menuItems} colorBg={this.props.colorBg} key={item.id}/>
                     ))}
-                </div>
-            </>
+              </div>
     )
   }
 }
